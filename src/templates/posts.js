@@ -5,6 +5,7 @@ import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Container from '../components/Container'
 import Pagination from '../components/Pagination'
+import MeetTheBlogger from '../components/MeetTheBlogger'
 import SEO from '../components/SEO'
 import { startCase } from 'lodash'
 
@@ -31,12 +32,14 @@ const Posts = ({ data, pageContext }) => {
       <SEO title={startCase(basePath)} image={ogImage} />
       <Container>
         {isFirstPage ? (
-          <CardList>
-            <Card {...featuredPost} featured basePath={basePath} />
-            {posts.slice(1).map(({ node: post }) => (
-              <Card key={post.id} {...post} basePath={basePath} />
-            ))}
-          </CardList>
+          <>
+            <MeetTheBlogger />
+            <CardList>
+              {posts.slice(1).map(({ node: post }) => (
+                <Card key={post.id} {...post} basePath={basePath} />
+              ))}
+            </CardList>
+          </>
         ) : (
           <CardList>
             {posts.map(({ node: post }) => (
