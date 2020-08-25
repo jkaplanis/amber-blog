@@ -48,6 +48,7 @@ const PostTemplate = ({ data, pageContext }) => {
           date={publishDate}
           timeToRead={body.childMarkdownRemark.timeToRead}
         />
+        {/* add extra images in a grid here */}
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} basePath={basePath} />

@@ -13,14 +13,8 @@ const Posts = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
   const { humanPageNumber, basePath } = pageContext
   const isFirstPage = humanPageNumber === 1
-  let featuredPost
   let ogImage
 
-  try {
-    featuredPost = posts[0].node
-  } catch (error) {
-    featuredPost = null
-  }
   try {
     ogImage = posts[0].node.heroImage.ogimg.src
   } catch (error) {
